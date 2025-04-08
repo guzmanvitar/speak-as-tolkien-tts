@@ -26,7 +26,12 @@ def transcribe_audio(audio_path: Path, model_size: str = "base") -> list[dict]:
     model = whisper.load_model(model_size)
 
     logger.info("Transcribing audio: %s", audio_path)
-    result = model.transcribe(str(audio_path), verbose=False)
+    result = model.transcribe(
+        str(audio_path),
+        best_of=5,
+        initial_prompt="The speaker speaks slowly and carefully. Wait for long silences to"
+        " segment.",
+    )
     segments = result.get("segments", [])
     logger.info("Transcription complete. Found %d segments.", len(segments))
     return segments
