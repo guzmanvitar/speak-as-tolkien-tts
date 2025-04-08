@@ -3,9 +3,16 @@ name = "speak-as-tolkien-tts"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.11.11"
+requires-python = ">=3.9.18"
 dependencies = [
     "fastapi>=0.115.12",
+    "numba==0.53.1",
+    "numpy==1.23.5",
+    "openai-whisper>=20240930",
+    "pydub>=0.25.1",
+    "torch==2.2.2",
+    "torchaudio>=2.2.2",
+    "webrtcvad>=2.0.10",
 ]
 
 [dependency-groups]
